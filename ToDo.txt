@@ -1,0 +1,18 @@
+# Coding steps
+
+- WiFi Manager for initial setup
+- OTA to update "Visa" without cable connected
+- DEBUG via serial
+- Select MAX7219 hardware
+  - Serial selection
+  - Web page for selection configuration
+
+
+## Notes
+
+**Example that can print "UTF8" ish**
+
+\Documents\Arduino\Parola_UFT-8_Display
+
+https://github.com/MajicDesigns/MD_Parola/blob/main/examples/Parola_UFT-8_Display/Parola_UFT-8_Display.ino
+
