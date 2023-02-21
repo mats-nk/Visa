@@ -21,6 +21,11 @@ As display is MAX7219 modules (4-16) is choosen, but other displays like MDM (P2
 **Brian Lough** Excellent YouTube videos about Json and the helpfull discord server he has. https://www.youtube.com/@BrianLough
 
 
+## Developers discussion
+
+https://discord.gg/BtCTPks9
+
+
 ## Features
 
 - Web interface to configure the display (MAX7219)
