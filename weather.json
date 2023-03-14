@@ -1,0 +1,27 @@
+{
+    "current_condition": [
+        {
+            "FeelsLikeC": "-9",
+            "FeelsLikeF": "16",
+            "cloudcover": "75",
+            "humidity": "93",
+            "lang_sv": [
+                {
+                    "value": "Växlande molnighet"
+                }
+            ],
+            "localObsDateTime": "2023-03-08 07:43 PM",
+            "observation_time": "06:43 PM",
+            "pressure": "992",
+            "temp_C": "-3",
+            "visibility": "10",
+            "visibilityMiles": "6",
+            "weatherCode": "116",
+            "weatherDesc": [
+                {
+                    "value": "Partly cloudy"
+                }
+            ]
+        }
+    ]
+}
