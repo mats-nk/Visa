@@ -7352,7 +7352,7 @@ Source: www.kingbright.com</description>
 <wire x1="66.04" y1="60.96" x2="114.3" y2="60.96" width="0.6096" layer="98" style="longdash"/>
 <wire x1="114.3" y1="60.96" x2="114.3" y2="0" width="0.6096" layer="98" style="longdash"/>
 <text x="2.794" y="2.286" size="1.778" layer="97">Wemos D1 Mini - MAX7219
-(c) Mats Karlsson 2023-04-24 v3</text>
+(c) Mats Karlsson 2023-05-29 v5</text>
 <text x="50.8" y="51.054" size="1.778" layer="97">D5 - CLK
 D6 - CS
 D7 - Din</text>
