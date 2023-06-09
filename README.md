@@ -39,7 +39,7 @@ https://discord.gg/BtCTPks9
 
 The languages that the project will support initialy is
 - English
-- Swedish, Norvegian, dannish
+- Swedish, Norvegian, Dannish
 - German
 - Other languages is to be community driven, with the help of translation templates...
 
