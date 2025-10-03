@@ -11,43 +11,30 @@ As display is MAX7219 modules (4-16) is choosen, but other displays like MDM (P2
 **Others that would like to contribute is welcome**
 
 ## Thanks to
-
 **Marco Colli**, MajicDesigns. Marcos libraries and his helpfull attitude have inspired me a lot.
-
-**Bodmer** for his http://www.openweathermap.org library for Arduino.
-
-**OpenWeatherMap** http://openweathermap.org for having a free weather API (API Key registration is needed).
 
 **Brian Lough** Excellent YouTube videos about Json and the helpfull discord server he has. https://www.youtube.com/@BrianLough
 
-
 ## Developers discussion
 
-https://discord.gg/BtCTPks9
 
 
 ## Features
-
 - Web interface to configure the display (MAX7219)
 - Configurable MAX7219 Hardware type (FC16, Generic, Parola or ICstation)) and no of MAX7219 modules (4-16) via Web interface
-- Fetch weather data - OpenWeatherMap
-- Get correct time and date - NTP
+- Weather information
+- Pollen and airpolution information
+- Time and date
+- Correct time zone
 - Movment (PIR) sensor for trigger "show clock" when clock is in sleep mode and trigger "show weather" when clock is NOT sleeping
 - Button for multiple purposes (trigger reset to factory settings ++)
 - LED to show activity
 - LDR (Light Depending Resistor) to automatically adjust the display intensity
+- Local temperature sensor
 
-The languages that the project will support initialy is
+**The languages that the project will support initialy is**
 - English
-- Swedish, Norvegian, Dannish
-- German
-- Other languages is to be community driven, with the help of translation templates...
+- Swedish
+- Other languages is to be community driven, with the help of translation templates.
 
-## Later
-
-- Temp sensor (DS18B20 or EQ)
-- Moisture sensor (DHT21, BME280 or EQ)
-- LuftDaten (Air quality)
-- News
-- Electricy/energy price
 - Other ...
