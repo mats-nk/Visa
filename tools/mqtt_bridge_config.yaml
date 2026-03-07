@@ -1,0 +1,70 @@
+# ============================================================
+#  mqtt_bridge.py  –  Configuration File
+# ============================================================
+
+# ------------------------------------------------------------
+# Source broker  (where we subscribe / read from)
+# ------------------------------------------------------------
+source:
+  broker: "<MQTT broker>"
+  port: 1883
+  username: ""
+  password: ""
+  client_id: "mqtt_bridge_source"
+  tls: false
+  # ca_cert: "/path/to/ca.crt"
+
+# ------------------------------------------------------------
+# Destination broker  (where we publish / write to)
+# Can be the same broker as source – topics must then differ.
+# ------------------------------------------------------------
+destination:
+  broker: "<MQTT broker>"
+  port: 1883
+  username: ""
+  password: ""
+  client_id: "mqtt_bridge_destination"
+  tls: false
+  # ca_cert: "/path/to/ca.crt"
+  retain: true    # retain flag on all published messages
+  qos: 1          # 0, 1, or 2
+
+# ------------------------------------------------------------
+# Bridge behaviour
+# ------------------------------------------------------------
+bridge:
+  # How often (seconds) to log a heartbeat and re-publish the version topic.
+  # Set to 0 to disable the heartbeat entirely.
+  heartbeat_interval: 10
+
+  # MQTT topic where the script version is published on startup and each heartbeat.
+  version_topic: "bridge/version"
+
+# ------------------------------------------------------------
+# Topic mappings
+# ------------------------------------------------------------
+mappings:
+
+  - from: "weather/temperature"
+    to:   "LED_MATRIX/value"
+    enabled: true
+    transform:
+      - "round:0"
+      - "suffix: °C"
+      - 'prefix:Ute:  '
+
+  - from: "weather/wind_speed"
+    to:   "LED_MATRIX/value"
+    enabled: true
+    transform:
+      - "round:1"
+      - "suffix: m/s"
+      - 'prefix:Blåst:  '
+
+  - from: "weather/humidity"
+    to:   "LED_MATRIX/value"
+    enabled: true
+    transform:
+      - "round:2"
+      - "suffix: %"
+      - 'prefix:Fukt:  '

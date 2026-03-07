@@ -1,0 +1,93 @@
+# ============================================================
+#  Weather → MQTT  –  Configuration File
+# ============================================================
+
+# ------------------------------------------------------------
+# MQTT broker settings
+# ------------------------------------------------------------
+mqtt:
+  broker: "<MQTT broker>"      # hostname or IP of your MQTT broker
+  port: 1883                   # 1883 = plain, 8883 = TLS
+  username: ""                 # leave empty if no auth required
+  password: ""                 # leave empty if no auth required
+  client_id: "weather_publisher"
+  tls: false                   # set true to enable TLS/SSL
+  # ca_cert: "/path/to/ca.crt" # optional: path to CA certificate for TLS
+
+  # Topic layout
+  # Placeholders available: {base}, {field}
+  # Example result: "weather/temperature"
+  base_topic: "weather"
+  topic_per_field: true        # true  → publish each field to its own sub-topic
+                               # false → publish all fields as one JSON payload
+  json_topic: "weather/all"  # used when topic_per_field is false
+
+  retain: true                 # set the MQTT retain flag on published messages
+  qos: 1                       # 0, 1, or 2
+
+# ------------------------------------------------------------
+# Weather service
+# ------------------------------------------------------------
+weather:
+  service: "open-meteo"        # "open-meteo"  or  "wttr.in"
+
+  # Location – used by both services
+  latitude: XX.XXXX            # decimal degrees  (Stockholm example)
+  longitude: YY.YYYY
+  location_name: "ZZZZZZZZZ"   # human-readable; used by wttr.in text lookup
+                               # (wttr.in ignores lat/lon if this is set)
+
+  # How often to fetch (seconds)
+  interval: 900                # 900 = every 15 minutes
+
+  # Language for weather descriptions (ISO-639-1 code)
+  # Supported: en, sv, de, fr, nl, es, no, fi, da, pl
+  # Falls back to English for any untranslated code.
+  language: "en"
+
+  # ── Units ──────────────────────────────────────────────────
+  units:
+    temperature: "celsius"       # "celsius" | "fahrenheit"
+    wind_speed: "ms"             # "kmh" | "mph" | "ms" | "knots"
+    wind_direction: "16-compass" # "degrees"    → raw 0-360°
+                                 # "16-compass"  → N, NNE, NE, ENE, E … (16 points)
+                                 # "12-compass"  → N, NNE, NE, E, SE … (12 points)
+    precipitation: "mm"          # "mm" | "inch"
+                                 # open-meteo only:
+    timezone: "auto"             # e.g. "Europe/Stockholm" or "auto"
+
+  # ── Fields to fetch & publish ──────────────────────────────
+  # Set a field to true to enable it, false to skip it.
+  fields:
+    # Current conditions
+    temperature: true          # current temperature
+    feels_like: true           # apparent / feels-like temperature
+    humidity: true             # relative humidity (%)
+    precipitation: true        # precipitation in the last hour (mm/inch)
+    rain: true                 # rain component
+    wind_speed: true           # wind speed
+    wind_direction: true       # wind direction (format set by units.wind_direction)
+    wind_gusts: true           # wind gusts
+    cloud_cover: true          # cloud cover (%)
+    visibility: false          # visibility (metres) – open-meteo only
+    surface_pressure: true     # atmospheric pressure (hPa)
+    weather_code: true         # WMO weather interpretation code
+    weather_description: true  # human-readable description of the code
+    is_day: false              # 1 = day, 0 = night  – open-meteo only
+
+    # Forecast – next 24 h (open-meteo only; ignored by wttr.in)
+    forecast_enabled: false
+    forecast_hours: 24         # how many hours ahead to include
+    forecast_temperature_max: false
+    forecast_temperature_min: false
+    forecast_precipitation_sum: false
+    forecast_wind_speed_max: false
+    forecast_weather_code: false
+
+# ------------------------------------------------------------
+# Logging
+# ------------------------------------------------------------
+logging:
+  level: "INFO"                # DEBUG | INFO | WARNING | ERROR
+  log_to_file: false
+  log_file: "weather_mqtt.log"

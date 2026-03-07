@@ -1,0 +1,6 @@
+# weather_mqtt – Python dependencies
+# Install with:  pip install -r requirements.txt
+
+paho-mqtt>=1.6.1
+requests>=2.28.0
+PyYAML>=6.0
