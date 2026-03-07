@@ -10,6 +10,25 @@ Visa is old norse for "Show" and thats what this project is about.
  - Publish to MQTT broker what IP it has got
  - Other configuration is acomplished by publish to specific MQTT topics.
 
+# `tools` folder
+
+Here you can find some python tool for get "weather data to MQTT topics" and "MQTT topics to other MQTT topics" with transformation.
+
+### `weather_mqtt.py` — fetches weather from Open-Meteo or wttr.in and publishes to MQTT
+ - Multi-language weather descriptions (10 languages)
+ - Configurable fields, units, wind direction format
+ - In-place countdown between fetches
+ - Script version published as MQTT topic
+
+### `mqtt_bridge.py` — forwards MQTT topics with transforms
+ - Normal 1-to-1 forwarding
+ - Automatic round-robin when multiple sources share the same destination
+ - Transform pipeline: round, scale, offset, suffix, prefix, template, json_field
+ - Wildcard subscriptions with dynamic destination topics
+ - Script version published as MQTT topic
+
+### `setup.sh` — creates the venv, installs dependencies and runs a smoke test
+
 # MQTT Topic Reference
 
 All topics use the pattern `<hostname>/<suffix>`.
