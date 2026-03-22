@@ -1089,6 +1089,10 @@ void reconnect() {
         cfg.hwType, cfg.numDevices, cfg.clkPin, cfg.dataPin,
         cfg.csPin, cfg.auxPin, cfg.hbLedPin, cfg.scrollDelay, cfg.intensity,
         cfg.animMode, cfg.pauseMs, cfg.alignText);
+      // Publish IP address for easy OTA targeting
+      char ipStr[16];
+      WiFi.localIP().toString().toCharArray(ipStr, sizeof(ipStr));
+      client.publish((String(cfg.hostname) + "/ip").c_str(), ipStr, true);  // retain=true
       client.publish(t.pub_cfg_status, info);
 
     } else {
